@@ -6,15 +6,15 @@ import datetime
 import emoji
 
 
-# token = '5361815767:AAGwQlqlJZAXqyJ6R8Igw1fXdaaZkVskOpw'
-#
-# bot = telebot.TeleBot(token)
-#
-# @bot.message_handler(commands=['start', 'help'])
-# def helpas(message):
-#     helps = '''
-#
-#     '''
+token = '5361815767:AAGwQlqlJZAXqyJ6R8Igw1fXdaaZkVskOpw'
+
+bot = telebot.TeleBot(token)
+
+@bot.message_handler(commands=['start', 'help'])
+def helpas(message):
+    helps = '''
+
+    '''
 
 
 
