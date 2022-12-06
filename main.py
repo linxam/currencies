@@ -64,7 +64,7 @@ def list_currencies(currencies):
         "HUF": ':Hungary:',
         "HKD": ':Hong_Kong_SAR_China:',
         "DKK": ':Denmark:',
-        "USD": '',
+        "USD": ':United_States:',
         "EUR": ':Germany:',
         "INR": ':India:',
         "KZT": ':Kazakhstan:',
@@ -72,8 +72,8 @@ def list_currencies(currencies):
         "KGS": ':Kyrgyzstan:',
         "CNY": ':China:',
         "MDL": ':Moldova:',
-        "NOK": '',
-        "PLN": '',
+        "NOK": ':Norway:',
+        "PLN": ':Poland:',
         "RON": ':Romania:',
         "XDR": ':airplane_departure:',
         "SGD": ':Singapore:',
@@ -86,7 +86,7 @@ def list_currencies(currencies):
         "SEK": ':Sweden:',
         "CHF": ':Switzerland:',
         "ZAR": ':South_Africa:',
-        "KRW": '',
+        "KRW": ':South_Korea:',
         "JPY": ':Japan:'
     }
     a = ''
