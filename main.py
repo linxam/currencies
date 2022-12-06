@@ -13,10 +13,24 @@ bot = telebot.TeleBot(token)
 @bot.message_handler(commands=['start', 'help'])
 def helpas(message):
     helps = '''
-
+This bot converts from one valute to enother.
+/all - get list.
     '''
+    bot.send_message(message.chat.id, helps)
 
 
+@bot.message_handler(commands=['all'])
+def get_all(message):
+    bot.send_message(message.chat.id, list_currencies(currencies))
+
+
+@bot.message_handler(func=lambda x: True)
+def bot_convert(message):
+    txt = message.text.split()
+    if len(txt) != 3:
+        bot.reply_to(message, 'wrong format')
+    else:
+        bot.reply_to(message, str(converter(currencies, txt[0], txt[1], txt[2])))
 
 
 def get_currencies():
@@ -91,10 +105,23 @@ def list_currencies(currencies):
     }
     a = ''
     for i in currencies:
-        a += (f'{i} {currencies[i]["Name"]} {currencies[i]["Nominal"]} {currencies[i]["Value"]} \n')
+        a += (f'{i} {emoji.emojize(flags[i])} {currencies[i]["Nominal"]} {currencies[i]["Name"]} {currencies[i]["Value"]}  \n')
     return a
+
+
+
+def converter(currencies, vfrom, vto, suma):
+    vfrom = vfrom.strip().upper()
+    vto = vto.strip().upper()
+    if vto == 'RUB':
+        rezoolt = float(suma) / int(currencies[vfrom]["Nominal"]) * float(currencies[vfrom]["Value"])
+    elif vfrom == "RUB":
+
+    return rezoolt
 
 
 currencies = get_currencies()
 print(list_currencies(currencies))
 # print(emoji.emojize('	:Russia:'))
+
+bot.polling(none_stop=True)
