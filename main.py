@@ -116,6 +116,8 @@ def converter(currencies, vfrom, vto, suma):
     if vto == 'RUB':
         rezoolt = float(suma) / int(currencies[vfrom]["Nominal"]) * float(currencies[vfrom]["Value"])
     elif vfrom == "RUB":
+        rezoolt = float(suma) * int(currencies[vto]["Nominal"]) / float(currencies[vto]["Value"])
+
 
     return rezoolt
 
